@@ -31,6 +31,8 @@ class GutenbergSpider(scrapy.Spider):
             ebook["text"] = text
             ebook["text_file"] = f"https://www.gutenberg.org/ebooks/{id}.txt.utf-8"
             
+            yield ebook
+            
             self.index += 1
             
         yield scrapy.Request(f"https://www.gutenberg.org/ebooks/bookshelf/57?start_index={self.index}", callback=self.parse)
