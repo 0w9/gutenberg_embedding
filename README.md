@@ -14,4 +14,4 @@ graph TD;
 
 First the scraper goes to the [Category Page](https://www.gutenberg.org/ebooks/bookshelf/57) and gets all the Ebooks and their metadata (like IDs). Each category page returns 25 Ebooks at a time. To get all the Ebooks, we need to use pagination, to pages like the `start_index` of 26 (https://www.gutenberg.org/ebooks/bookshelf/57?start_index=26).
 
-The Scrapy Pipeline then gets passed all items, and using Langchain embeds them into MongoDB. For this we use OpenAI.
+The Scrapy Pipeline then gets passed all items, and using Langchain embeds them into MongoDB. For this we use OpenAI. The text content of splits of 1,000 characters is embedded, which is the most important part when analyzing the general text.
