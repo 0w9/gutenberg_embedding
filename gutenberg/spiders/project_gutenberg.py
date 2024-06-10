@@ -8,7 +8,9 @@ class GutenbergSpider(scrapy.Spider):
     start_urls = ["https://www.gutenberg.org/ebooks/bookshelf"]
     index = 0
     
-    
+    def start_requests(self):
+        for url in self.start_urls:
+            yield scrapy.Request(url, callback=self.parse_bookshelves)
     
     def parse_bookshelves(self, response):
         bookshelves = response.css("div.bookshelves")
