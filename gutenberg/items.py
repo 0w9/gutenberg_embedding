@@ -14,6 +14,7 @@ class GutenbergItem(scrapy.Item):
 class GutenbergEbook(scrapy.Item):
     index = scrapy.Field()
     id = scrapy.Field()
+    bookshelf_name = scrapy.Field()
     title = scrapy.Field()
     author = scrapy.Field()
     downloads = scrapy.Field()
