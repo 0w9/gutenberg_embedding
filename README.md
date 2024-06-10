@@ -12,4 +12,4 @@ graph TD;
     C-->D;
 ```
 
-First the scraper goes to the [Category Page](https://www.gutenberg.org/ebooks/bookshelf/57) and gets all the Ebooks and their metadata (like IDs). Each category page returns 25 Ebooks at a time. To get all the Ebooks, we need to use pagination, to pages like the `start_index` of 26 (ttps://www.gutenberg.org/ebooks/bookshelf/57?start_index=26).
+First the scraper goes to the [Category Page](https://www.gutenberg.org/ebooks/bookshelf/57) and gets all the Ebooks and their metadata (like IDs). Each category page returns 25 Ebooks at a time. To get all the Ebooks, we need to use pagination, to pages like the `start_index` of 26 (https://www.gutenberg.org/ebooks/bookshelf/57?start_index=26).
