@@ -33,4 +33,4 @@ class GutenbergSpider(scrapy.Spider):
             
             self.index += 1
             
-        yield scrapy.Request(f"https://www.gutenberg.org/ebooks/bookshelf/57?start_index={self.index}", callback=self.parse) 
+        yield scrapy.Request(f"https://www.gutenberg.org/ebooks/bookshelf/57?start_index={self.index}", callback=self.parse)
