@@ -13,14 +13,15 @@ class GutenbergSpider(scrapy.Spider):
             yield scrapy.Request(url, callback=self.parse_bookshelves)
     
     def parse_bookshelves(self, response):
-        bookshelves = response.css("div.bookshelves")
+        bookshelves = response.css("div.bookshelf_pages")
         bookshelves_links = bookshelves.css("ul > li > a::attr(href)").getall()
         
         for link in bookshelves_links:
             bookshelf_name = link.split("/")[-1]
-            yield scrapy.Request(link, callback=self.parse_ebooks, meta={"bookshelf_name": bookshelf_name})
+            yield scrapy.Request(url=f"https://www.gutenberg.org/ebooks/bookshelf/{bookshelf_name}", callback=self.parse_ebooks, meta={'bookshelf_name': bookshelf_name})
             
-    def parse_ebooks(self, response, bookshelf_name):
+    def parse_ebooks(self, response):
+        bookshelf_name = response.meta['bookshelf_name']
         results = response.css("ul.results")
         
         if not results:
